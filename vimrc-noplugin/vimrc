@@ -1,0 +1,214 @@
+" ====================
+" === Editor Setup ===
+" ====================
+
+" ===
+" === System
+" ===
+set mouse=a
+set encoding=utf-8
+syntax enable
+syntax on "代码高亮
+filetype on         " required
+
+" ===
+" === Main code display
+" ===
+set nocompatible "不兼容Vi"
+set number "打开行号
+set norelativenumber "相对行号，relativenumber 为开启
+set cursorline "高亮当前行
+
+" Searching options
+set hlsearch
+"打开时先关闭高亮
+exec "nohlsearch" 
+set incsearch
+set ignorecase
+set smartcase
+
+set cindent
+
+" Prevent incorrect backgroung rendering
+let &t_ut=''
+
+" ==
+" === Editor behavior
+" ===
+" Better tab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
+
+" Prevent auto line split
+set wrap "设置每一行不会超出窗口位置，即显示的时候自动换行
+set tw=0
+set indentexpr=
+
+" Better backspace
+set backspace=indent,eol,start
+
+set foldmethod=indent
+set foldlevel=99
+
+" ===
+" === Window behaviors
+" ===
+set splitright
+set splitbelow
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" ===
+" === Status/command bar
+" ===
+set laststatus=2
+set autochdir
+set showcmd "显示当前操作
+set formatoptions-=tc
+
+
+" Show command autocomplete
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu                                                 " show a navigable menu for tab completion
+set wildmode=longest,list,full
+
+set whichwrap+=<,>,[,],h,l
+set clipboard=unnamed "共享系统剪贴板
+
+" ===
+" === Restore Cursor Position
+" ===
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" ===
+" === Basic Mappings
+" ===
+
+" Set <LEADER> as <SPACE>
+let mapleader=" "
+
+
+"noremap 更改键位
+noremap H 5h
+noremap J 5j
+noremap K 5k
+noremap L 5l
+
+" Search
+noremap = nzz
+noremap - Nzz
+noremap <LEADER><CR> :nohlsearch<CR>
+
+" Save & quit
+map s <nop> 
+"s为删掉当前字符并进入写入模式
+map S :w<CR> 
+"<CR>表示回车，效果：S即保存写入
+map Q :wq<CR> 
+"效果：Q即退出vim
+map R :source R $MYVIMRC<CR> 
+"效果：R刷新vimrc
+map ; :
+
+" split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
+map sl :set nosplitright<CR>:vsplit<CR>
+map sr :set splitright<CR>:vsplit<CR>
+map su :set nosplitbelow<CR>:split<CR>
+map sd :set splitbelow<CR>:split<CR>
+
+" ===
+" === Window management
+" ===
+" Use <space> + new arrow keys for moving the cursor around windows
+map <LEADER>k <C-w>k
+map <LEADER>j <C-w>j
+map <LEADER>h <C-w>h
+map <LEADER>l <C-w>l
+
+
+" Resize splits with arrow keys
+"map <up> :res +5<CR>
+"map <down> :res -5<CR>
+"map <left> :vertical resize-5<CR>
+"map <right> :vertical resize+5<CR>
+map <LEADER>ss :set spell!<CR>
+
+noremap <C-x> ea<C-x>s
+inoremap <C-x> <Esc>ea<C-x>s
+" Press space twice to jump to the next '<++>' and edit it
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
+
+" Compile function
+map r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+  exec "w"
+  if &filetype == 'c'
+    exec "!gcc % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'cpp'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'java'
+    exec "!javac %"
+    exec "!time java %<"
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    silent! exec "!clear"
+    exec "!time python3 %"
+  elseif &filetype == 'html'
+    exec "!firefox % &"
+  elseif &filetype == 'markdown'
+    exec "MarkdownPreview"
+  elseif &filetype == 'vimwiki'
+    exec "MarkdownPreview"
+  endif
+endfunc
+
+map R :call CompileBuildrrr()<CR>
+func! CompileBuildrrr()
+  exec "w"
+  if &filetype == 'vim'
+    exec "source $MYVIMRC"
+  elseif &filetype == 'markdown'
+    exec "echo"
+  endif
+endfunc
+
+"---added by zzjc
+
+set ruler " 打开状态栏标尺
+set shiftwidth=4 " 设定 << 和 >> 命令移动时的宽度为 4
+set softtabstop=4 " 使得按退格键时可以一次删掉 4 个空格
+set nobackup " 覆盖文件时不备份
+set autochdir " 自动切换当前目录为当前文件所在的目录
+
+set foldenable " 开始折叠
+set foldmethod=syntax " 设置语法折叠
+set foldcolumn=0 " 设置折叠区域的宽度
+setlocal foldlevel=1 " 设置折叠层数为
+set foldclose=all " 设置为自动关闭折叠 
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+" 用空格键来开关折叠
+
+set noerrorbells " 关闭错误信息响铃
+set novisualbell " 关闭使用可视响铃代替呼叫
+set t_vb= " 置空错误铃声的终端代码
+set magic " 设置魔术
+
+set hidden " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+"set guioptions-=T " 隐藏工具栏
+"set guioptions-=m " 隐藏菜单栏
+set smartindent " 开启新行时使用智能自动缩进
+
+set cmdheight=1 " 设定命令行的行数为 1
+set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
+

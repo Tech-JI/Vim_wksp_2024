@@ -1,0 +1,249 @@
+"  __  __        __     _____ __  __ ____   ____
+" |  \/  |_   _  \ \   / /_ _|  \/  |  _ \ / ___|
+" | |\/| | | | |  \ \ / / | || |\/| | |_) | |
+" | |  | | |_| |   \ V /  | || |  | |  _ <| |___
+" |_|  |_|\__, |    \_/  |___|_|  |_|_| \_\\____|
+"         |___/
+
+
+" ====================
+" === Editor Setup ===
+" ====================
+
+" ===
+" === System
+" ===
+set mouse=a
+set encoding=utf-8
+syntax enable
+syntax on "代码高亮
+
+" ===
+" === Main code display
+" ===
+set nocompatible
+set number "打开行号
+set norelativenumber "相对行号，relativenumber 为开启
+set cursorline "高亮当前行
+
+" Searching options
+set hlsearch
+"打开时先关闭高亮
+exec "nohlsearch" 
+set incsearch
+set ignorecase
+set smartcase
+
+set cindent
+
+" Prevent incorrect backgroung rendering
+let &t_ut=''
+
+" ==
+" === Editor behavior
+" ===
+" Better tab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
+
+" Prevent auto line split
+set wrap "设置每一行不会超出窗口位置，即显示的时候自动换行
+set tw=0
+set indentexpr=
+
+" Better backspace
+set backspace=indent,eol,start
+
+set foldmethod=indent
+set foldlevel=99
+
+" ===
+" === Window behaviors
+" ===
+set splitright
+set splitbelow
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" ===
+" === Status/command bar
+" ===
+set laststatus=2
+set autochdir
+set showcmd "显示当前操作
+set formatoptions-=tc
+
+
+" Show command autocomplete
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu                                                 " show a navigable menu for tab completion
+set wildmode=longest,list,full
+
+set whichwrap+=<,>,[,],h,l
+set clipboard=unnamed "共享系统剪贴板
+
+" ===
+" === Restore Cursor Position
+" ===
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" ===
+" === Basic Mappings
+" ===
+
+" Set <LEADER> as <SPACE>
+let mapleader=" "
+
+
+"noremap 更改键位
+noremap H 5h
+noremap J 5j
+noremap K 5k
+noremap L 5l
+
+" Search
+noremap = nzz
+noremap - Nzz
+noremap <LEADER><CR> :nohlsearch<CR>
+
+" Save & quit
+map s <nop> 
+"s为删掉当前字符并进入写入模式
+map S :w<CR> 
+"<CR>表示回车，效果：S即保存写入
+map Q :wq<CR> 
+"效果：Q即退出vim
+map R :source R $MYVIMRC<CR> 
+"效果：R刷新vimrc
+map ; :
+
+" split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
+map sl :set nosplitright<CR>:vsplit<CR>
+map sr :set splitright<CR>:vsplit<CR>
+map su :set nosplitbelow<CR>:split<CR>
+map sd :set splitbelow<CR>:split<CR>
+
+" ===
+" === Window management
+" ===
+" Use <space> + new arrow keys for moving the cursor around windows
+"map <LEADER>k <C-w>k
+"map <LEADER>j <C-w>j
+"map <LEADER>h <C-w>h
+"map <LEADER>l <C-w>l
+
+
+" Resize splits with arrow keys
+"map <up> :res +5<CR>
+"map <down> :res -5<CR>
+"map <left> :vertical resize-5<CR>
+"map <right> :vertical resize+5<CR>
+map <LEADER>ss :set spell!<CR>
+
+noremap <C-x> ea<C-x>s
+inoremap <C-x> <Esc>ea<C-x>s
+" Press space twice to jump to the next '<++>' and edit it
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
+
+" Compile function
+map r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+  exec "w"
+  if &filetype == 'c'
+    exec "!gcc % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'cpp'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'java'
+    exec "!javac %"
+    exec "!time java %<"
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    silent! exec "!clear"
+    exec "!time python3 %"
+  elseif &filetype == 'html'
+    exec "!firefox % &"
+  elseif &filetype == 'markdown'
+    exec "MarkdownPreview"
+  elseif &filetype == 'vimwiki'
+    exec "MarkdownPreview"
+  endif
+endfunc
+
+map R :call CompileBuildrrr()<CR>
+func! CompileBuildrrr()
+  exec "w"
+  if &filetype == 'vim'
+    exec "source $MYVIMRC"
+  elseif &filetype == 'markdown'
+    exec "echo"
+  endif
+endfunc
+map R :call CompileBuildrrr()<CR>
+func! CompileBuildrrr()
+  exec "w"
+  if &filetype == 'vim'
+    exec "source $MYVIMRC"
+  elseif &filetype == 'markdown'
+    exec "echo"
+  endif
+endfunc
+
+set nocompatible              " be iMproved, required
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline' "状态栏
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'connorholyday/vim-snazzy' "配色
+
+" File navigation
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "文件树
+" Error checking
+Plugin 'w0rp/ale'
+" All of your Plugins must be added before the following line
+call vundle#end() " required
+
+filetype on " required
+filetype indent on  " required
+filetype plugin on  " required
+filetype plugin indent on " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+map tt :NERDTreeToggle<CR>
+let NERDTreeMapOpenExpl = ""
+let NERDTreeMapUpdir = ""
+let NERDTreeMapUpdirKeepOpen = "l"
+let NERDTreeMapOpenSplit = ""
+let NERDTreeOpenVSplit = ""
+let NERDTreeMapActivateNode = "i"
+let NERDTreeMapOpenInTab = "o"
+let NERDTreeMapPreview = ""
+let NERDTreeMapCloseDir = "n"
+let NERDTreeMapChangeRoot = "y"
+colorscheme snazzy
+let g:SnazzyTransparent = 1

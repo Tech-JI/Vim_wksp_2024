@@ -1,0 +1,130 @@
+set nocompatible    " be iMproved, required
+filetype on         " required
+
+set timeoutlen=1000
+set ttimeoutlen=5
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+" Coding
+Plugin 'dense-analysis/ale'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'preservim/nerdcommenter'
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'tpope/vim-surround'
+" File types
+Plugin 'peterhoeg/vim-qml'
+Plugin 'lervag/vimtex'
+" Utilities
+Plugin 'kyazdani42/nvim-web-devicons'
+Plugin 'kyazdani42/nvim-tree.lua'
+Plugin 'reedes/vim-pencil'
+Plugin 'thaerkh/vim-workspace'
+" Appearance
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Music
+Plugin 'azadkuh/vim-cmus'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+syntax on
+set encoding=utf-8 fileformat=unix
+set number
+
+set splitright splitbelow
+
+set foldmethod=indent foldlevel=99
+
+autocmd BufRead,BufNewFile *.qml setfiletype qml
+
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType json,toml,yaml,html    set ts=2 sw=2 sts=2 noexpandtab
+autocmd FileType python                 set ts=4 sw=4 sts=4 expandtab
+autocmd FileType c,cpp,asm              set ts=8 sw=8 sts=8 noexpandtab
+set autoindent smartindent
+
+set background=dark
+let g:airline_theme='onedark'
+
+" Popup menu colors
+set termguicolors
+highlight Pmenu     guibg=#282C34
+highlight PmenuSel  guibg=#61AFEF
+
+" Generic shortcuts
+inoremap <C-s> <esc>:w<CR>i<right>
+nnoremap <leader>\ :noh<CR>
+autocmd FileType python nnoremap <leader>b :!black %<CR>:e<CR>
+
+" ale
+nnoremap <leader>a :ALEToggle<CR>
+
+" telescope
+nnoremap <leader>f :Telescope find_files<CR>
+nnoremap <leader>g :Telescope live_grep<CR>
+nnoremap <leader>fb :Telescope buffers<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+nnoremap <leader>d :call deoplete#toggle()<CR>
+
+" NERDCommenter
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+" vimtex
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_compiler_method = 'latexmk'
+
+" nvim-tree
+nnoremap <C-e> :NvimTreeToggle<CR>
+nnoremap <leader>t :NvimTreeFocus<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
+
+" vim-pencil
+nnoremap <leader>p :PencilToggle<CR>
+let g:pencil#map#suspend_af = 'K'
+let g:pencil#textwidth = 74
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+augroup END
+
+" vim-workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_session_disable_on_args = 1
+let g:workspace_autosave = 0
+
+" vim-cmus
+nnoremap <leader>c :Cmus<CR>
