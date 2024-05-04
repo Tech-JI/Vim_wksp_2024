@@ -1,6 +1,6 @@
 # Vim Workshop
 
- By ？
+By ？
 
 time?
 
@@ -91,8 +91,11 @@ From a small program ~~or from an English essay~~
     To get a quick start, we recommned you use our sample config file.
 
     ```bash
+    cd ~/
+    git clone git@github.com:TechJI-2023/Vim_wksp_2024.git
     mkdir ~/.vim
-    cp ./vimrc-noplugin/vimrc ~/.vim/vimrc
+    cp ~/Vim_wksp_2024/vimrc-noplugin/vimrc ~/.vim/vimrc
+    cd ~/.vim
     vim ~/.vimrc
     # Then quit by using :q
     ```
@@ -407,15 +410,15 @@ You can use `R` to enter the replace mode.
 
 ### Without Plugin
 
-See -> `Vim-Wksp/vimrc-noplugin/vimrc`
+See -> `Vim_wksp_2024/vimrc-noplugin/vimrc`
 
 We strongly suggest you do this:
 
 ```
 cd ~/
-git clone git@github.com:zzjc1234/Vim-Wksp.git
+git clone git@github.com:TechJI-2023/Vim_wksp_2024.git
 mkdir ~/.vim
-cp ~/Vim-Wksp/vimrc-noplugin/vimrc ~/.vim/vimrc
+cp ~/Vim_wksp_2024/vimrc-noplugin/vimrc ~/.vim/vimrc
 cd ~/.vim
 vim ~/.vimrc
 ```
@@ -487,7 +490,7 @@ Move the cursor position manually  `ctrl+w+h/j/k/l`
 
 ### With Plugin
 
-See -> `Vim-Wksp/vimrc-withplugin/vimrc`
+See -> `Vim_wksp_2024/vimrc-withplugin/vimrc`
 
 We strongly suggest you do this in wksp:
 
@@ -554,10 +557,10 @@ We strongly suggest you do this in wksp:
 
 ```
 cd ~/
-git clone git@github.com:zzjc1234/Vim-Wksp.git
+git clone git@github.com:TechJI-2023/Vim_wksp_2024.git
 mkdir .vim
 cd .vim
-cp ~/Vim-Wksp/vimrc-withplugin/vimrc ~/.vim/vimrc
+cp ~/Vim_wksp_2024/vimrc-withplugin/vimrc ~/.vim/vimrc
 vim vimrc
 ```
 
@@ -661,9 +664,9 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
 
 + [astronvim](https://astronvim.com/)
 + [supervim](https://github.com/Linfee/supervim)
-+ Manuel's neovim -> `Vim-Workshop/vimrc-sample/manuel-init.vim`
++ Manuel's neovim -> `Vim_wksp_2024/vimrc-sample/manuel-init.vim`
 
-+ emacs -> coming soon!
++ [emacs](https://en.wikipedia.org/wiki/Emacs) -> coming soon!
 
 ![](https://raw.githubusercontent.com/Hydraallen/images/master/img/the_violence_has_escalated.png)
 
@@ -671,7 +674,7 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
 
 + vscode
 
-  You may refer to -> `Vim-Wksp/vimrc-sample/vimrc-vscode`
+  You may refer to -> `Vim_wksp_2024/vimrc-sample/vimrc-vscode`
 
   ![](https://raw.githubusercontent.com/Hydraallen/images/master/img/Snipaste_2023-03-30_16-33-50.png)
 
@@ -681,7 +684,7 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
 
 ​		Use vim key bindings to manage your files
 
-​		You may refer to -> `Vim-Wksp/Usage-reference/ranger.md`
+​		You may refer to -> `Vim_wksp_2024/Usage-reference/ranger.md`
 
 ​		(If you use windows with powershell and posh, you can use [lf](https://github.com/gokcehan/lf))
 
