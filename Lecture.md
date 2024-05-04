@@ -660,7 +660,7 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
 
 + [lunarvim](https://www.lunarvim.org/zh-Hans/)
 
-有非常详细的官方文档，可以参考`Vim-Wksp/vimrc-sample/lunarvim-config.lua`
+有非常详细的官方文档，可以参考`Vim_wksp_2024/vimrc-sample/lvim`或[参考配置文件仓库](https://github.com/Hydraallen/lvim)
 
 + [astronvim](https://astronvim.com/)
 + [supervim](https://github.com/Linfee/supervim)
@@ -684,7 +684,7 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
 
 ​		Use vim key bindings to manage your files
 
-​		You may refer to -> `Vim_wksp_2024/Usage-reference/ranger.md`
+​		You may refer to -> `Vim_wksp_2024/Usage-reference/ranger.md` and `Vim_wksp_2024/vimrc-sample/ranger` and `Vim_wksp_2024/vimrc-sample/joshuto`.
 
 ​		(If you use windows with powershell and posh, you can use [lf](https://github.com/gokcehan/lf))
 
