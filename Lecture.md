@@ -643,9 +643,20 @@ Here are some recommendations:
 
    https://devhints.io/vim
 
-4. b站 @ TheCW
+4. [b站@TheCW](https://space.bilibili.com/13081489)
 
-   https://space.bilibili.com/13081489
+    [上古神器Vim：从恶言相向到爱不释手 - 终极Vim教程01 - 带你配置属于你自己的最强IDE](https://www.bilibili.com/video/BV164411P7tw/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+    [上古神器Vim：进阶使用/配置、必备插件介绍 - 终极Vim教程02 - 带你配置属于你自己的最强IDE](https://www.bilibili.com/video/BV1e4411V7AA/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+    [「妈妈不会告诉你的Vim技巧」 -Vim终极教程03 - 带你配置属于你自己的最强IDE](https://www.bilibili.com/video/BV1r4411G7de/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+    [让你写代码快如飞！「Vim + Snippets」使用代码片段提高编程效率](https://www.bilibili.com/video/BV1XE411b7Du/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+    [一个Vim插件不解决问题？那就两个！【Vim插件推荐·第一期】](https://www.bilibili.com/video/BV1KT4y1c78p/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+    [Vim多光标？事半功倍的Vim插件～【Vim插件推荐·第二期】](https://www.bilibili.com/video/BV1Gy4y1q7Co/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
 
 
 
@@ -677,6 +688,8 @@ Vim 原项目地址: [GitHub - vim/vim](https://link.zhihu.com/?target=https%3A/
   You may refer to -> `Vim_wksp_2024/vimrc-sample/vimrc-vscode`
 
   ![](https://raw.githubusercontent.com/Hydraallen/images/master/img/Snipaste_2023-03-30_16-33-50.png)
+
+  ![](./src/vscode+vim.jpg)
 
 + help/man
 
