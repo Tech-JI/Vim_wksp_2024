@@ -96,7 +96,7 @@ From a small program ~~or from an English essay~~
     mkdir ~/.vim
     cp ~/Vim_wksp_2024/vimrc-noplugin/vimrc ~/.vim/vimrc
     cd ~/.vim
-    vim ~/.vimrc
+    vim ~/.vim/vimrc
     # Then quit by using :q
     ```
 
