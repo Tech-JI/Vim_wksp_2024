@@ -1,8 +1,8 @@
 # Vim Workshop
 
-By Hydraallen, Marina
+By ？
 
-Time: 2024.5.12
+time?
 
 ---
 
@@ -72,7 +72,7 @@ From a small program ~~or from an English essay~~
 
 2. Vimtutor
 
-   You can type `vimtutor` in your terminal to start the vimtutor, a tutor for vim with language related to your system language. It only takes you about 25~30 min. If you feel just give it a try if you want to go over the basic command of vim.
+   You can type `vimtuor` in your terminal to start the vimtutor, a tutor for vim with language related to your system language. It only takes you about 25~30 min. If you feel just give it a try if you want to go over the basic command of vim.
 
 3. [Official Website](https://www.vim.org/)
 
@@ -96,7 +96,7 @@ From a small program ~~or from an English essay~~
     mkdir ~/.vim
     cp ~/Vim_wksp_2024/vimrc-noplugin/vimrc ~/.vim/vimrc
     cd ~/.vim
-    vim ~/.vim/vimrc
+    vim ~/.vimrc
     # Then quit by using :q
     ```
 
@@ -194,14 +194,14 @@ vim ./test-Vim/article.txt
    6. `"*p / "+p:` Paste from system clipboard
    7. `"*y / "+y`: Paste to system clipboard
 
-   **Note:** For users using wsl, you may encounter some problems when using the clipboard, this issue cannot be solved by part2.
+   **Note:** For users using wsl, you may encounter some problems when using the clipboard, this issue cannot be solved by part2
 
 3. Editing
 
    1. `u`: You can use `u` to undo the editing
    2. `<C-R>`: You can use `<C-R>` to redo the editing
 
-4. Operators
+4. Opeartors
 
    >Operators let you operate in a range of text (defined by motion). These are performed in normal mode.
 
@@ -230,6 +230,18 @@ vim ./test-Vim/article.txt
    |`diB`|delete inner '{' '}' block|
    |`daB`|delete a '{' '}' block|
 
+- Text Objects
+
+   |key|Object|
+   |---|---|
+   |p|Paragraph|
+   |w|Word|
+   |s|Sentence|
+   |[ ( { < A [], (), or {}|block|
+   |' " `|A quoted string|
+   |b|A block (|
+   |B|A block in {|
+   |t|A XML tag block|
 
 - Sentence and Paragraph in vim
 
@@ -402,13 +414,13 @@ See -> `Vim_wksp_2024/vimrc-noplugin/vimrc`
 
 We strongly suggest you do this:
 
-```bash
+```
 cd ~/
 git clone git@github.com:TechJI-2023/Vim_wksp_2024.git
 mkdir ~/.vim
 cp ~/Vim_wksp_2024/vimrc-noplugin/vimrc ~/.vim/vimrc
 cd ~/.vim
-vim ~/.vimrc
+vim ~/.vim/vimrc
 ```
 
 Now your vim should be look like this
@@ -484,7 +496,7 @@ We strongly suggest you do this in wksp:
 
 1. Install [Vundle](https://github.com/VundleVim/Vundle.vim)
 
-```bash
+```
 cd ~/.vim
 mkdir bundle
 cd bundle
@@ -543,7 +555,7 @@ filetype plugin indent on " required
 
 We strongly suggest you do this in wksp:
 
-```bash
+```
 cd ~/
 git clone git@github.com:TechJI-2023/Vim_wksp_2024.git
 mkdir .vim
@@ -644,6 +656,8 @@ Here are some recommendations:
     [一个Vim插件不解决问题？那就两个！【Vim插件推荐·第一期】](https://www.bilibili.com/video/BV1KT4y1c78p/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
 
     [Vim多光标？事半功倍的Vim插件～【Vim插件推荐·第二期】](https://www.bilibili.com/video/BV1Gy4y1q7Co/?share_source=copy_web&vd_source=facc81a2443da2d3944514898362ffa9)
+
+
 
 
 
