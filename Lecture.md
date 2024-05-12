@@ -1,8 +1,8 @@
 # Vim Workshop
 
-By ？
+By Hydraallen, Marina
 
-time?
+Time: 2024.5.12 18:00-20:00
 
 ---
 
